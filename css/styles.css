@@ -1,0 +1,228 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  min-height: 100vh;
+  font-size: 100%;
+  line-height: 100%;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  font-size: inherit;
+  color: inherit;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  border: 2px solid red;
+  font-size: 16px;
+  color: #E4E5EA;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.container {
+  position: relative;
+  padding: 61px 150px 0px 150px;
+  margin: 0 auto;
+  background-color: #0E1014;
+  max-width: 1445px;
+  height: 1342px;
+}
+
+.container_header {
+  position: relative;
+  z-index: 3;
+}
+.container_header p {
+  margin-top: 10px;
+  width: 165px;
+  height: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.container_header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.container_header-content a {
+  display: block;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.wrapper img:nth-child(1) {
+  margin-right: 8px;
+}
+.wrapper img:nth-child(2) {
+  height: 15px;
+}
+
+.aboutHeader {
+  margin-left: 36px;
+}
+
+.contact-header__tel {
+  margin-left: 140px;
+  min-width: 140px;
+}
+
+.contact-header__mesenger-telegram {
+  margin-left: 49px;
+}
+
+.contact-header__mesenger-whatsUp, .contact-header__mesenger-viber {
+  margin-left: 34px;
+}
+
+.container_earn-more {
+  padding: 210px 124px 0 152px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  top: 0;
+  left: 0;
+  width: 638px;
+  height: 700px;
+  z-index: 2;
+  position: absolute;
+  background: url("../img/noise(1)(1).png");
+  font-size: 48px;
+  line-height: 58px;
+}
+.container_earn-more p:nth-child(2) {
+  background: linear-gradient(92deg, #FCB045 27.14%, #FF3F78 121.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 900;
+}
+.container_earn-more p:nth-child(3) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  max-width: 275px;
+  margin-top: 30px;
+}
+
+.container_polyhedron {
+  height: 674px;
+  width: 390px;
+  position: absolute;
+  top: 0;
+  left: 530px;
+}
+
+.polyhedron {
+  background: url("../img/Polyhedron(1).png") 50% 50% no-repeat;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  -webkit-filter: blur(0.55px);
+          filter: blur(0.55px);
+}
+
+.dots {
+  background: url("../img/dots(1).png") 0% 0%/cover no-repeat;
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+}
+.dots::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0E1014), color-stop(21.46%, rgba(14, 16, 20, 0)));
+  background: linear-gradient(180deg, #0E1014 0%, rgba(14, 16, 20, 0) 21.46%);
+}
+.dots::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0.12%, #0E1014), color-stop(32.61%, rgba(14, 16, 20, 0)));
+  background: linear-gradient(0deg, #0E1014 0.12%, rgba(14, 16, 20, 0) 32.61%);
+}
