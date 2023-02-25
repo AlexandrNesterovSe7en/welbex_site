@@ -180,12 +180,90 @@
             </div>
             <div class="order-tel">
               <h3>Ваш номер телефона</h3>
-              <input type="tel" placeholder="telephone" maxlength="19">
+              <input type="tel" maxlength="19" placeholder="+7 (___) ___-__-__">
               <button>Заказать аудит</button>
+              <p>Нажимая «Заказать аудит», я даю согласие на <span>обработку персональных данных</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="container-calculation">
+          <h2>Расчёт стоимости</h2>
+          <div class="container-choice">
+            <div class="container-paragraph_info">
+              <p>Ответьте на 4 вопроса и&nbspполучите&nbsp<span>расчёт&nbspстоимости</span> <span>внедрения AmoCRM</span></p>
+              <p id="p">И сэкономьте 80% своего времени.</p>
+            </div>
+            <div class="container-order_choice">
+              <p>При заказе с сайта вы получите 4 бонуса от компании:</p>
+              <div class="container-order_wrap">
+                <p>Аудит с лучшим экспертом компании</p>
+                <p>Dashboard с показателями</p>
+                <p>30 виджетов</p>
+                <p>35 дней AmoCRM</p>
+              </div>
+              <form action="#" onsubmit="return false" name="form-useCRM" class="form-info_user">
+                <h2>1. пользуетесь amoCRM?</h2>
+                <div class="container-counetr_choice-input input_form_info">
+                  <input id="planning" type="radio" name="useCRM" checked>
+                  <label for="planning">Нет, планирую</label>
+
+                  <input id="less_year" type="radio" name="useCRM">
+                  <label for="less_year">Да, меньше года</label>
+
+                  <input id="1-3_years" type="radio" name="useCRM">
+                  <label for="1-3_years">Да, 1-3 года</label>
+
+                  <input id="more_3_years" type="radio" name="useCRM">
+                  <label for="more_3_years">Да, более 3-х лет</label>
+                </div>
+                <h2>2. Сколько менеджеров у вас в штате?</h2>
+                <div class="container-counetr_managers input_form_info">
+                  <input id="1-3_managers" type="radio" name="count_manager" checked>
+                  <label for="1-3_managers">1-3</label>
+
+                  <input id="4-10_managers" type="radio" name="count_manager">
+                  <label for="4-10_managers">4-10</label>
+
+                  <input id="11-20_managers" type="radio" name="count_manager">
+                  <label for="11-20_managers">11-20</label>
+
+                  <input id="more_20_managers" type="radio" name="count_manager">
+                  <label for="more_20_managers">более 20</label>
+                </div>
+                <h2>3. Пользуетесь виджетами?</h2>
+                <div class="container-use_vidget input_form_info">
+                  <input id="not_use_vidget" type="radio" name="use_vidgets" checked>
+                  <label for="not_use_vidget">Нет</label>
+
+                  <input id="1-3_vidgets" type="radio" name="use_vidgets">
+                  <label for="1-3_vidgets">Да, 1-3 виджета</label>
+
+                  <input id="4-8_vidgets" type="radio" name="use_vidgets">
+                  <label for="4-8_vidgets">Да, 4-8 виджета</label>
+
+                  <input id="more_8_vidgets" type="radio" name="use_vidgets">
+                  <label for="more_8_vidgets">Да, более 8 виджетов</label>
+                </div>
+                <h2>4. Выберите бонус, который хотите получить</h2>
+                <div class="container-bonus input_form_info">
+                  <input id="bonus" type="radio" name="bonus" checked>
+                  <label for="bonus">30 Виджетов</label>
+
+                  <input id="discount" type="radio" name="bonus">
+                  <label for="discount">20% на доработку AmoCRM</label>
+                </div>
+                <div class="order-tel">
+                  <h3>Ваш номер телефона</h3>
+                  <input type="tel" maxlength="19" placeholder="+7 (___) ___-__-__">
+                  <button>Заказать аудит</button>
+                  <p>Нажимая «Заказать аудит», я даю согласие на <span>обработку персональных данных</span></p>
+               </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+        <div class="time"></div>          
     </div>
     <script src="js/script.js"></script>
   </body>

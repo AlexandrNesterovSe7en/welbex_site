@@ -1,93 +1,91 @@
-document.addEventListener('DOMContentLoaded', function(){
-    let inputTel = document.querySelectorAll('input[type=tel]');
+let input = document.querySelectorAll('input[type="tel"]')
+let mask = '+7 (___) ___-__-__'
 
-    inputTel.forEach(input => {
-        const mask = '+7 (___) ___-__-__';
-        input.value = mask;
+input.forEach((input) =>{
+    input.addEventListener('input', (event) => {
+        let input = event.target;
 
-        input.addEventListener('input', function(event){
-            let input = event.target;
-            let inputNumberValue = input.value;
-            let coretkaPos = input.selectionStart;
-            let foramatted;
+        let value = input.value;
+        let data = event.data;
+        let caretPos = input.selectionStart;
+        let regNumber = value.match(/[\d_]/g)
+        
+        if (data == '_') {
+            value = value.slice(0, caretPos-1) + value.slice(caretPos,);
+            regNumber = value.match(/[\d_]/g);
+        }
+        if (regNumber == null) {
+            input.value = mask;
+            return
+        }
 
-            //Запрет ввода букв
-            if (/[^)(+_-\s\d]/g.test(inputNumberValue)){
-               --coretkaPos
-               input.value = '+' + inputNumberValue.replace(/[^)(_-\s\d]/g, '');
-               input.selectionStart = input.selectionEnd = coretkaPos;
-               return               
+        if (regNumber.length == 12 && /\d/.test(data)) {
+
+            value = value.slice(0,caretPos-1) + value.slice(caretPos,)
+            regNumber = value.match(/[\d_]/g)
+            
+            let indexRegNumber = regNumber.indexOf('_')
+
+            if (indexRegNumber != -1) {
+                regNumber.splice(indexRegNumber, 1, data)
             }
 
-            function getNum(foramatted, coretkaPos, indexCoretka) {
-                
-                let len = indexCoretka == 4 || indexCoretka == 9 ? 3 : 2;
-                let controlIndex = indexCoretka == 4 ? 1 : indexCoretka == 9 ? 2 : indexCoretka == 13 ? 3 : 4
-                console.log(len)
-                if (foramatted[controlIndex].length < len) {
-                    switch (coretkaPos){
+        }
 
-                        case indexCoretka:
-                            foramatted[controlIndex] = '_' + foramatted[controlIndex]
-                            break
-                        case indexCoretka + 1:
-                            foramatted[controlIndex] = foramatted[controlIndex][0] + '_' + (foramatted[controlIndex][1] ?foramatted[controlIndex][1] :'')
-                            break
-                        case indexCoretka + 2:
-                            foramatted[controlIndex] = foramatted[controlIndex] + '_'
-                            break
-                        default:
-                            foramatted = ['7', '___', '___', '__', '__']
-                    }
-                }else if (foramatted[controlIndex].length >= len){
-                    switch (coretkaPos){
+        if (regNumber.length < 11) {
 
-                        case indexCoretka + 1:
-                            foramatted[controlIndex] = foramatted[controlIndex][0] + foramatted[controlIndex].substring(2)
-                            break
-                        case indexCoretka + 2:
-                            foramatted[controlIndex] = foramatted[controlIndex].substring(0, 2) + foramatted[controlIndex].substring(3)
-                            break
-                        case indexCoretka + 3:
-                            foramatted[controlIndex] = foramatted[controlIndex].substring(0, 3) + foramatted[controlIndex].substring(4)                        
-                            break
-                        default:
-                            foramatted = ['7', '___', '___', '__', '__']
-                    }
-                }
-                console.log(foramatted, coretkaPos)
-                return `+7 (${foramatted[1]}) ${foramatted[2]}-${foramatted[3]}-${foramatted[4]}`
-            }
-            if (coretkaPos >= 4 && coretkaPos < 8) {                
-                foramatted = inputNumberValue.match(/[\d_]+/g)
-                input.value = getNum(foramatted, coretkaPos, 4)
-                input.selectionStart = input.selectionEnd = coretkaPos;
-            } else if(coretkaPos >= 9 && coretkaPos < 13){
-                foramatted = inputNumberValue.match(/[\d_]+/g)
-                input.value = getNum(foramatted, coretkaPos, 9)
-                input.selectionStart = input.selectionEnd = coretkaPos;
-            } else if(coretkaPos >= 13 && coretkaPos < 16){
-                foramatted = inputNumberValue.match(/[\d_]+/g)
-                input.value = getNum(foramatted, coretkaPos, 13)
-                input.selectionStart = input.selectionEnd = coretkaPos;
-            } else if(coretkaPos >= 16 && coretkaPos < 19){
-                foramatted = inputNumberValue.match(/[\d_]+/g)
-                input.value = getNum(foramatted, coretkaPos, 16)
-                input.selectionStart = input.selectionEnd = coretkaPos;
-            }
-            else{
-                input.value = '+7 (___) ___-__-__'
-            }
-        })
-        input.addEventListener('focus', function(event){
-            let input = event.target;
-            let inputNumberValue = input.value;
-            let coretkaPos = 4;
+            let multiplyStr = [];
+            let border = 11 - regNumber.length
 
-            if (mask == inputNumberValue) {
-                input.selectionStart = input.selectionEnd = coretkaPos;    
+            for (let i = 0; i < border; i++){
+                multiplyStr.push('_')
             }
-        })
+
+            value = value.slice(0, caretPos) + multiplyStr.join('') + value.slice(caretPos,)
+            regNumber = value.match(/[\d_]/g)      
+            
+            if (regNumber[0] != 7) {
+                regNumber.unshift(7);
+            } 
+        }
+
+        if (value.length < 18 && caretPos >= 4) {
+
+            if (caretPos == 15) {
+                value = value.slice(0, caretPos - 1) + '_' + value.slice(caretPos,)
+            } else if (caretPos == 12) {
+                value = value.slice(0, caretPos - 1) + '_' + value.slice(caretPos,)     
+            } else if (caretPos == 8 || caretPos == 7 || caretPos == 6) {
+                value = value.slice(0, caretPos - 2) + '_' + value.slice(caretPos,)     
+            }
+            regNumber = value.match(/[\d_]/g)
+        }
+
+        input.value = `+7 (${regNumber.slice(1, 4).join('')}) ${regNumber.slice(4, 7).join('')}-${regNumber.slice(7, 9).join('')}-${regNumber.slice(9, 11).join('')}`
+
+        function getCaretPos(value) {
+
+            let caretPos;
+            let index = value?.match('_')?.index;
+            let flag = /\d/.test(`${index}`)
+
+            caretPos = flag ? index : 19;
+
+            return caretPos == null ? 4 : caretPos;
+        }
+
+
+        caretPos = getCaretPos(input.value);
+        input.setSelectionRange(caretPos, caretPos)
     })
+    input.addEventListener('click', (event) => {
+        let value = event.target.value
+        let index = value?.match('_')?.index
+        if (index) {
+            event.target.setSelectionRange(index, index)
+        } else return;
+    })
+    input.addEventListener('focus', (event) => {
+        event.target.value = mask;
+    }, {once: true})
 })
-
