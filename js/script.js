@@ -89,3 +89,38 @@ input.forEach((input) =>{
         event.target.value = mask;
     }, {once: true})
 })
+
+
+
+
+
+window.onload = function(event) {
+
+    function putCenterIconServices() {
+        
+        let icons = document.querySelectorAll('.img_icon_services img:last-child')
+        let size = {}
+        let i = 0
+
+        for(let i = 0; i < icons.length; i++) {
+
+            let item = icons[i];
+            let width = item.clientWidth;
+            let height = item.clientHeight;
+
+            let centerWidth = Math.floor(width / 2);
+            let centerHeight = Math.floor(height / 2);
+
+            centerWidth = 35 - centerWidth;
+            centerHeight = 35 - centerHeight;
+
+            item.style.cssText = `
+                position: absolute;
+                top: ${centerHeight}px;
+                left: ${centerWidth}px;
+                visibility: visible;`
+        }
+    }
+
+    putCenterIconServices()
+}
